@@ -25,7 +25,7 @@
     <nav>
         <ul class="pagination">
             {% set nbPage = (category|length/4) %}
-            {% if nbPage != 1 %}
+            {% if nbPage > 1 %}
                 {% for page in 1..nbPage %}
                     <li><a href="{{ path('category', {'name': name,'id': page }) }}">{{ page }}</a></li>
                 {% endfor %}
