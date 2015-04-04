@@ -1,0 +1,10 @@
+{% extends "BlogAppBundle::index.html.twig" %}
+
+{% block blog %}
+    <img class="img-article center-block img-responsive" src="{{ article.picture }}" alt="{{ article.name }}"/>
+    <h3 class="text-center" >{{ 'Synopsys'|upper }}</h3>
+    <p class="text-center">{{ article.updatedAt|date('d/m/Y') }}</p>
+    <p class="text-center"><a href="{{ path('category', {'name': article.category }) }}">{{ article.category }}</a></p>
+    <p class="text-center">{{ article.content }}</p>
+    <p class="text-center">Autheur: {{ article.users }}</p>
+{% endblock blog %}

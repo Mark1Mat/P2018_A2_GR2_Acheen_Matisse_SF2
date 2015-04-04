@@ -1,0 +1,10 @@
+.thumbnail{
+    word-wrap: break-word;
+}
+.img-article{
+    height: 500px;
+    width: 800px;
+}
+p>a{
+    color: #000000;
+}

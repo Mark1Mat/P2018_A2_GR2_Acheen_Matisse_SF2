@@ -1,0 +1,31 @@
+{% extends "BlogAppBundle::index.html.twig" %}
+
+{% block blog %}
+    <div class="row">
+        {% for article in tags|slice(min, max) %}
+            <div class="col-xs-12 col-md-6">
+                <article class="thumbnail">
+                    <a href="{{ path('article', {'id': article.id}) }}">
+                        <img src="{{ article.picture }}" class="img-responsive" alt="{{ article.name }}">
+                        <h2>{{ article.name }}</h2>
+                    </a>
+                    <time>{{ article.updatedAt|date("d/m/Y") }}</time>
+                    <p>{{ article.content|truncate(180) }}</p>
+                    <a href="#">{{ article.category.name }}</a>
+                    <p>{{ article.users.lastname }}</p>
+                </article>
+            </div>
+        {% endfor %}
+    </div>
+    <nav>
+        <ul class="pagination">
+            {% set nbPage = (tags|length/4) %}
+            {% if nbPage > 1 %}
+                {% for page in 1..nbPage %}
+                    <li><a href="{{ path('tags', {'name': name,'id': page }) }}">{{ page }}</a></li>
+                {% endfor %}
+            {% endif %}
+
+        </ul>
+    </nav>
+{% endblock blog %}
