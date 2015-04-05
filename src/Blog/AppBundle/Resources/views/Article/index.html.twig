@@ -14,13 +14,13 @@
                         </a>
                         <p><a href="{{ path('category', {'name': article.category }) }}">{{ article.category }}</a></p>
                         <time>{{ article.updatedAt|date("d/m/Y") }}</time>
-                        <p>{{ article.content|truncate(180) }}</p>
+                        <p>{{ article.content|truncate(180)|raw }}</p>
                         <p>
                             {% for tag in article.tag %}
                                 <a href="{{ path('tag', {'name': tag}) }}" class="btn btn-primary btn-xs">{{ tag }}</a>
                             {% endfor %}
                         </p>
-                        <p>Autheur: {{ article.users }}</p>
+                        <p>Auteur: {{ article.users }}</p>
                     </article>
                 </div>
             {% endif %}

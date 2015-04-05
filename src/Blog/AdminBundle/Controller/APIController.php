@@ -19,7 +19,7 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 class APIController extends Controller
 {
     /**
-     * @Route("/article/{id}", name="api_pokemon", defaults={"id" = null}, requirements={"id" =  "\d+"})
+     * @Route("/article/{id}", name="api_article", defaults={"id" = null}, requirements={"id" =  "\d+"})
      */
     public function articleAction($id)
     {
@@ -31,9 +31,9 @@ class APIController extends Controller
         return new JsonResponse($article);
     }
     /**
-     * @Route("/category/{id}", name="api_trainer", defaults={"id" = null}, requirements={"id" =  "\d+"})
+     * @Route("/category/{id}", name="api_category", defaults={"id" = null}, requirements={"id" =  "\d+"})
      */
-    public function trainerAction($id)
+    public function categoryAction($id)
     {
         $em = $this->getDoctrine()->getManager();
         //var_dump($id);die;

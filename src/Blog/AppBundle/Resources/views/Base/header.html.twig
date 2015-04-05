@@ -6,7 +6,8 @@
     <!-- CDN bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
-    {% stylesheets '@BlogAppBundle/Resources/public/css/*' %}
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    {% stylesheets 'bundle/blogapp/css/*' %}
         <link rel="stylesheet" href="{{ asset_url }}" />
     {% endstylesheets %}
 </head>
@@ -21,7 +22,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Passionate Mangas</a>
+            <a class="navbar-brand" href="{{ path('homePage') }}">Passionate Mangas</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -31,7 +32,16 @@
                 {% if articles is not defined %}
                     <li><a href="{{ path('homePage') }}">Home </a></li>
                 {% endif %}
-                <li><a href="#">About</a></li>
+                <li><a href="{{ path('about') }}">About</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">API<span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="{{ path('api_article') }}">Article</a></li>
+                        <li><a href="{{ path('api_category') }}">Category</a></li>
+                        <li><a href="{{ path('api_tag') }}">Tag</a></li>
+                        <li><a href="{{ path('api_user') }}">User</a></li>
+                    </ul>
+                </li>
                 <li><a href="{{ path('sonata_admin_dashboard') }}">Admin</a></li>
                 <li><a href="#">Contact </a></li>
             </ul>

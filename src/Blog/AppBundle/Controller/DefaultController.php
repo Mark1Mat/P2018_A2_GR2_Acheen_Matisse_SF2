@@ -10,5 +10,12 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 
 class DefaultController extends Controller
 {
-
+    /**
+     * @Route("/about", name="about")
+     *
+     */
+    public function showAction()
+    {
+        return $this->render('BlogAppBundle:About:index.html.twig');
+    }
 }
